@@ -12,10 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('productos', function (Blueprint $table) {
-            $table->integer('id_producto')->primary();
-            $table->string('nombre_producto', 250)->nullable();
-            $table->enum('tipo_producto', ['bebida', 'comida'])->nullable();
-            $table->integer('precio_producto')->nullable();
+            $table->id(); 
+            $table->string('nombre_producto', 250);
+            $table->enum('tipo_producto', ['bebida', 'comida']);
+            $table->decimal('precio_producto', 10, 2);
+            $table->timestamps();
         });
     }
 
