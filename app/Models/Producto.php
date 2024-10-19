@@ -11,7 +11,7 @@ class Producto extends Model
 
     protected $table = 'productos'; // Asegúrate de que el nombre de la tabla es correcto
 
-    protected $primaryKey = 'id_producto';
+    protected $primaryKey = 'id';
 
     protected $fillable = [
         'nombre_producto',
