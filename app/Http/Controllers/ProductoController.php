@@ -17,7 +17,7 @@ class ProductoController extends Controller
     public function store(ProductoRequest $request)
     {
         $producto = Producto::create($request->validated());
-        return response()->json($producto);
+        return response()->json($producto, 201);
     }
 
         public function show(string $id)
@@ -35,7 +35,8 @@ class ProductoController extends Controller
 
     public function destroy(string $id)
     {
-        Producto::destroy($id);
+        $producto = Producto::findOrFail($id);
+        $producto->delete();
         return response()->json(null, 204);
     }
 }
